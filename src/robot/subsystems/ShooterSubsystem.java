@@ -25,16 +25,12 @@ import robotCore.Encoder.EncoderType;
 import robotCore.SmartMotor.SmartMotorMode;
 import robotCore.Logger;
 import robotCore.PWMMotor;
+import static robot.Constants.ShooterConstants.*;
 
 /**
  *
  */
 public class ShooterSubsystem extends SubsystemBase {
-    private static final int k_PWMPin = Device.M2_2_PWM;
-    private static final int k_DirPin = Device.M2_2_DIR;
-
-    private static final int k_encoderPin1 = Device.Q5_INT;
-    private static final int k_encoderPin2 = -1;
 
     private PWMMotor m_motor = new PWMMotor(k_PWMPin, k_DirPin);
     public Encoder m_encoder = new Encoder(EncoderType.Quadrature, k_encoderPin1, k_encoderPin2);

@@ -25,18 +25,9 @@ import robotCore.Encoder;
 import robotCore.Logger;
 import robotCore.PWMMotor;
 import robotCore.Encoder.EncoderType;
+import static robot.Constants.DrivetrainConstants.*;
 
 public class DriveSubsystem extends SubsystemBase {
-  public final static double  k_ticksPerFoot = 7059.2 / 5.85;
-
-  private static final int k_leftMotorPWMPin = Device.M1_1_PWM;
-  private static final int k_leftMotorDirPin = Device.M1_1_DIR;
-  private static final int k_rightMotorPWMPin = Device.M1_2_PWM;
-  private static final int k_rightMotorDirPin = Device.M1_2_DIR;
-  private static final int k_leftEncoderIntPin = Device.Q1_INT;
-  private static final int k_leftEncoderDirPin = Device.Q1_DIR;
-  private static final int k_rightEncoderIntPin = Device.Q2_INT;
-  private static final int k_rightEncoderDirPin = Device.Q2_DIR;
   
   private final PWMMotor m_leftMotor = new PWMMotor(k_leftMotorPWMPin, k_leftMotorDirPin);
   private final PWMMotor m_rightMotor = new PWMMotor(k_rightMotorPWMPin, k_rightMotorDirPin);

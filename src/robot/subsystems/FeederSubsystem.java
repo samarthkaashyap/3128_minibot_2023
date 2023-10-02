@@ -23,15 +23,12 @@ import robotCore.Encoder;
 import robotCore.Encoder.EncoderType;
 import robotCore.Logger;
 import robotCore.PWMMotor;
+import static robot.Constants.FeederConstants.*;
 
 /**
  *
  */
 public class FeederSubsystem extends SubsystemBase {
-	private static final int k_PWMPin = Device.M2_1_PWM;
-	private static final int k_DirPin = Device.M2_1_DIR;
-	private static final int k_encPin1 = Device.Q4_INT;
-	private static final int k_encPin2 = -1;
 
 	private PWMMotor m_motor = new PWMMotor(k_PWMPin, k_DirPin);
 	private Encoder m_encoder = new Encoder(EncoderType.Quadrature, k_encPin1, k_encPin2);
