@@ -19,20 +19,23 @@
 package robot.commands;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
-import robot.subsystems.ShooterSubsystem;
+import robot.subsystems.TurntableSubsystem;
+import robotCore.Encoder;
 import robotCore.Logger;
 
 /**
  *
  */
-public class TestShooterCommand extends CommandBase {
-    private final ShooterSubsystem m_subsystem;
-    int m_target = 1200;
+public class CmdTurntable extends CommandBase {
+    private final TurntableSubsystem m_subsystem;
+    private final Encoder m_encoder;
+    private double power;
 
-    public TestShooterCommand(ShooterSubsystem subsystem) {
-        Logger.log("TestShooterCommand", 3, "TestShooterCommand()");
-
+    public CmdTurntable(TurntableSubsystem subsystem, double power) {
+        Logger.log("TestTurntableCommand", 3, "TestTurntableCommand()");
+        this.power = power;
         m_subsystem = subsystem;
+        m_encoder = m_subsystem.getEncoder();
 
         // Use requires() here to declare subsystem dependencies
         addRequirements(m_subsystem);
@@ -41,26 +44,25 @@ public class TestShooterCommand extends CommandBase {
     // Called just before this Command runs the first time
     @Override
     public void initialize() {
-        Logger.log("TestShooterCommand", 2, "initialize()");
-        Logger.log("TestShooterCommand", 1, ",Speed,Target");
+        Logger.log("TestTurntableCommand", 2, "initialize()");
 
-        m_subsystem.setPower(0.75);
+        m_subsystem.setPower(power);
+
     }
 
     // Called repeatedly when this Command is scheduled to run
     @Override
     public void execute() {
-        Logger.log("TestShooterCommand", -1, "execute()");
+        Logger.log("TestTurntableCommand", -1, "execute()");
 
-        int speed = m_subsystem.m_encoder.getSpeed();
+        Logger.log("TestTurntableCommand", 1, String.format("Speed = %d", m_encoder.getSpeed()));
 
-        Logger.log("TestShooterCommand", 1, String.format("Speed = %d", speed));
     }
 
     // Make this return true when this Command no longer needs to run execute()
     @Override
     public boolean isFinished() {
-        Logger.log("TestShooterCommand", -1, "isFinished()");
+        Logger.log("TestTurntableCommand", -1, "isFinished()");
 
         return (false);
     }
@@ -68,7 +70,7 @@ public class TestShooterCommand extends CommandBase {
     // Called once after isFinished returns true
     @Override
     public void end(boolean interrupted) {
-        Logger.log("TestShooterCommand", 2, "end()");
+        Logger.log("TestTurntableCommand", 2, "end()");
 
         m_subsystem.setPower(0);
     }

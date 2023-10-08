@@ -28,7 +28,7 @@ import robotCore.Timer;
 /**
  *
  */
-public class TestDriveCommand extends CommandBase {
+public class CmdDrive extends CommandBase {
     private final DriveSubsystem m_subsystem;
     private Encoder m_leftEncoder;
     private Encoder m_rightEncoder;
@@ -43,7 +43,7 @@ public class TestDriveCommand extends CommandBase {
 
     private State m_state;
 
-    public TestDriveCommand(DriveSubsystem subsystem) {
+    public CmdDrive(DriveSubsystem subsystem) {
         Logger.log("TestDriveCommand", 3, "TestDriveCommand()");
 
         m_subsystem = subsystem;

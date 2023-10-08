@@ -69,7 +69,7 @@ public class Robot extends TimedRobot {
 
 	@Override
 	public void disabledPeriodic() {
-		Logger.log("Robot", -1, "disbledPeriodic()");
+		Logger.log("Robot", -1, "disabledPeriodic()");
 	}
 
 	/**

@@ -26,13 +26,14 @@ import robotCore.Logger;
 /**
  *
  */
-public class TestFeederCommand extends CommandBase {
+public class CmdFeeder extends CommandBase {
 	private final FeederSubsystem m_subsystem;
 	private final Encoder m_encoder;
+	private double power;
 
-	public TestFeederCommand(FeederSubsystem subsystem) {
+	public CmdFeeder(FeederSubsystem subsystem, double power) {
 		Logger.log("FeederCommand", 3, "FeederCommand()");
-
+		this.power = power;
 		m_subsystem = subsystem;
 		m_encoder = m_subsystem.getEncoder();
 
@@ -45,7 +46,7 @@ public class TestFeederCommand extends CommandBase {
 	public void initialize() {
 		Logger.log("FeederCommand", 2, "initialize()");
 
-		m_subsystem.SetPower(0.5);
+		m_subsystem.setPower(power);
 	}
 
 	// Called repeatedly when this Command is scheduled to run
@@ -67,6 +68,6 @@ public class TestFeederCommand extends CommandBase {
 	public void end(boolean interrupted) {
 		Logger.log("FeederCommand", 2, "end()");
 
-		m_subsystem.SetPower(0);
+		m_subsystem.setPower(0);
 	}
 }

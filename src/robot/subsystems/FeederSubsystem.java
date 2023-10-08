@@ -41,7 +41,7 @@ public class FeederSubsystem extends SubsystemBase {
 		Logger.log("FeederSubsystem", 2, "initDefaultCommand()");
 	}
 
-	public void SetPower(double power) {
+	public void setPower(double power) {
 		m_motor.set(power);
 	}
 

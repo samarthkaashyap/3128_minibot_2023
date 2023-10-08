@@ -26,7 +26,7 @@ import robotCore.Logger;
 /**
  * An example command that uses an example subsystem.
  */
-public class ArcadeDriveCommand extends CommandBase {
+public class CmdArcadeDrive extends CommandBase {
   private final DriveSubsystem m_subsystem;
   private final NAR_Joystick m_joystick;
 
@@ -35,7 +35,7 @@ public class ArcadeDriveCommand extends CommandBase {
    *
    * @param subsystem The subsystem used by this command.
    */
-  public ArcadeDriveCommand(DriveSubsystem subsystem, NAR_Joystick joystick) {
+  public CmdArcadeDrive(DriveSubsystem subsystem, NAR_Joystick joystick) {
     Logger.log("ArcadeDriveCommand", 3, "ArcadeDriveCommand()");
 
     m_subsystem = subsystem;

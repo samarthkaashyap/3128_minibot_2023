@@ -42,7 +42,7 @@ public class TurntableSubsystem extends SubsystemBase {
 		Logger.log("TurntableSubsystem", 2, "initDefaultCommand()");
 	}
 
-	public void SetPower(double power) {
+	public void setPower(double power) {
 		m_motor.set(power);
 	}
 

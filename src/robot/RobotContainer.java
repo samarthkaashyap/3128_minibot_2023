@@ -21,15 +21,16 @@ package robot;
 
 import edu.wpi.first.wpilibj2.command.Command;
 import frc.team3128.common.hardware.input.NAR_Joystick;
-import robot.commands.ArcadeDriveCommand;
+import robot.commands.CmdArcadeDrive;
 import robot.commands.TestBallCounterCommand;
-import robot.commands.TestDriveCommand;
-import robot.commands.TestFeederCommand;
+import robot.commands.CmdDrive;
+import robot.commands.CmdFeedAndShoot;
+import robot.commands.CmdFeeder;
 import robot.commands.TestNavigatorCommand;
 import robot.commands.TestLightCommand;
 import robot.commands.TestLimitSwitchesCommand;
-import robot.commands.TestShooterCommand;
-import robot.commands.TestTurntableCommand;
+import robot.commands.CmdShooter;
+import robot.commands.CmdTurntable;
 import robot.subsystems.DriveSubsystem;
 import robot.subsystems.FeederSubsystem;
 import robot.subsystems.ShooterSubsystem;
@@ -66,7 +67,7 @@ public class RobotContainer {
   public RobotContainer() {
     // Configure the button bindings
     configureButtonBindings();
-    m_driveSubsystem.setDefaultCommand(new ArcadeDriveCommand(m_driveSubsystem, m_joystick));
+    m_driveSubsystem.setDefaultCommand(new CmdArcadeDrive(m_driveSubsystem, m_joystick));
   }
 
   /**
@@ -76,14 +77,15 @@ public class RobotContainer {
    * passing it to a {@link edu.wpi.first.wpilibj2.command.button.JoystickButton}.
    */
   private void configureButtonBindings() {
-    m_joystick.getButton(1).onTrue(new TestDriveCommand(m_driveSubsystem));
-    m_joystick.getButton(2).whileTrue(new TestShooterCommand(m_shooterSubsystem));
-    m_joystick.getButton(3).whileTrue(new TestFeederCommand(m_feederSubsystem));
-    m_joystick.getButton(4).whileTrue(new TestTurntableCommand(m_turntableSubsystem));
-    m_joystick.getButton(5).toggleWhenActive(new TestLimitSwitchesCommand());
-    m_joystick.getButton(6).toggleWhenActive(new TestLightCommand(m_camera));
-    m_joystick.getButton(7).toggleWhenActive(new TestBallCounterCommand());
-    m_joystick.getButton(8).toggleWhenActive(new TestNavigatorCommand(m_driveSubsystem));
+    m_joystick.getButton(1).whileTrue(new CmdShooter(m_shooterSubsystem, 0.8));
+    m_joystick.getButton(2).whileTrue(new CmdFeeder(m_feederSubsystem, 0.6));
+    m_joystick.getButton(3).whileTrue(new CmdTurntable(m_turntableSubsystem, 0.6));
+    m_joystick.getButton(4).whileTrue(new CmdTurntable(m_turntableSubsystem, -0.6));
+    m_joystick.getButton(5).whileTrue(new CmdFeedAndShoot(m_feederSubsystem, m_shooterSubsystem, 0.5, 0.8));
+    m_joystick.getButton(6).toggleWhenActive(new TestLimitSwitchesCommand());
+    m_joystick.getButton(7).toggleWhenActive(new TestLightCommand(m_camera));
+    m_joystick.getButton(8).toggleWhenActive(new TestBallCounterCommand());
+    m_joystick.getButton(9).toggleWhenActive(new TestNavigatorCommand(m_driveSubsystem));
   }
 
   /**
