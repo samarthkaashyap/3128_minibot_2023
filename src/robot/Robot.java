@@ -80,7 +80,7 @@ public class Robot extends TimedRobot {
 	public void autonomousInit() {
 		Logger.log("Robot", 2, "autonomousInit()");
 	}
-
+//hello
 	/**
 	 * This function is called periodically during autonomous.
 	 */
