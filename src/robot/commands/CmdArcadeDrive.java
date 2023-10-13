@@ -36,7 +36,6 @@ public class CmdArcadeDrive extends CommandBase {
    * @param subsystem The subsystem used by this command.
    */
   public CmdArcadeDrive(DriveSubsystem subsystem, NAR_Joystick joystick) {
-    Logger.log("ArcadeDriveCommand", 3, "ArcadeDriveCommand()");
 
     m_subsystem = subsystem;
     m_joystick = joystick;
@@ -47,7 +46,7 @@ public class CmdArcadeDrive extends CommandBase {
   // Called when the command is initially scheduled.
   @Override
   public void initialize() {
-    Logger.log("ArcadeDriveCommand", 2, "initialize()");
+    
   }
 
   // Called every time the scheduler runs while the command is scheduled.

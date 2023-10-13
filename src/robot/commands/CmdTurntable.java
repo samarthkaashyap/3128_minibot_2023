@@ -19,20 +19,15 @@
 package robot.commands;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
-import robot.subsystems.TurntableSubsystem;
 import robotCore.Encoder;
-import robotCore.Logger;
+//import Turntable subsystem
 
-/**
- *
- */
 public class CmdTurntable extends CommandBase {
     private final TurntableSubsystem m_subsystem;
     private final Encoder m_encoder;
     private double power;
 
     public CmdTurntable(TurntableSubsystem subsystem, double power) {
-        Logger.log("TestTurntableCommand", 3, "TestTurntableCommand()");
         this.power = power;
         m_subsystem = subsystem;
         m_encoder = m_subsystem.getEncoder();
@@ -44,7 +39,6 @@ public class CmdTurntable extends CommandBase {
     // Called just before this Command runs the first time
     @Override
     public void initialize() {
-        Logger.log("TestTurntableCommand", 2, "initialize()");
 
         m_subsystem.setPower(power);
 
