@@ -23,7 +23,6 @@ import robotCore.Device;
 import robotCore.Encoder;
 import robotCore.Encoder.EncoderType;
 import robotCore.SmartMotor.SmartMotorMode;
-import robotCore.Logger;
 import robotCore.PWMMotor;
 
 //import constants

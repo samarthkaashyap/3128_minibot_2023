@@ -51,9 +51,7 @@ public class CmdFeeder extends CommandBase {
 	// Called repeatedly when this Command is scheduled to run
 	@Override
 	public void execute() {
-		Logger.log("FeederCommand", -1, "execute()");
-
-		Logger.log("FeederCommand", 1, String.format("Speed = %d", m_encoder.getSpeed()));
+		
 	}
 
 	// Make this return true when this Command no longer needs to run execute()
