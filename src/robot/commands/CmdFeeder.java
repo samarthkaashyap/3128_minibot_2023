@@ -19,51 +19,32 @@
 package robot.commands;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
-import robot.subsystems.FeederSubsystem;
-import robotCore.Encoder;
-import robotCore.Logger;
+//import encoder and feeder subsystem 
 
-/**
- *
- */
 public class CmdFeeder extends CommandBase {
-	private final FeederSubsystem m_subsystem;
-	private final Encoder m_encoder;
-	private double power;
+	//define stuff here, like subsystem, power, etc.
 
-	public CmdFeeder(FeederSubsystem subsystem, double power) {
-		this.power = power;
-		m_subsystem = subsystem;
-		m_encoder = m_subsystem.getEncoder();
+	public CmdFeeder() {
+		//parameters include the subsystem and the power 
 
-		// Use requires() here to declare subsystem dependencies
-		addRequirements(m_subsystem);
+		addRequirements();
 	}
 
-	// Called just before this Command runs the first time
 	@Override
 	public void initialize() {
-		Logger.log("FeederCommand", 2, "initialize()");
-
-		m_subsystem.setPower(power);
+		//set power here
 	}
 
-	// Called repeatedly when this Command is scheduled to run
+
 	@Override
 	public void execute() {
 		
 	}
 
-	// Make this return true when this Command no longer needs to run execute()
-	@Override
-	public boolean isFinished() {
-		return false;
-	}
+	//put isFinished here 
 
-	// Called once after isFinished returns true
 	@Override
 	public void end(boolean interrupted) {
 
-		m_subsystem.setPower(0);
 	}
 }

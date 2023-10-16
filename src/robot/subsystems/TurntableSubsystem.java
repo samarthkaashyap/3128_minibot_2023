@@ -20,10 +20,7 @@ package robot.subsystems;
 
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import robotCore.Device;
-import robotCore.Encoder;
-import robotCore.PWMMotor;
-import robotCore.Encoder.EncoderType;
-
+//import encoder, encoder type, and motor (PWMMotor)
 //import constants
 
 public class TurntableSubsystem extends SubsystemBase {

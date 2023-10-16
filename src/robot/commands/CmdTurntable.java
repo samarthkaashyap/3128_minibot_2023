@@ -19,19 +19,19 @@
 package robot.commands;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
-import robotCore.Encoder;
+//import encoder 
 //import Turntable subsystem
 
 public class CmdTurntable extends CommandBase {
-    //define subsystem and encoder here
-
+    //define stuff here, like power, subsystem, etc.
+    
     public CmdTurntable() {
+        //parameters include the subsystem and power
 
-        // Use requires() here to declare subsystem dependencies
         addRequirements();
     }
 
-    // Called just before this Command runs the first time
+  
     @Override
     public void initialize() {
 
@@ -39,21 +39,18 @@ public class CmdTurntable extends CommandBase {
 
     }
 
-    // Called repeatedly when this Command is scheduled to run
+
     @Override
     public void execute() {
     
     }
 
-    // Make this return true when this Command no longer needs to run execute()
-    @Override
-    public boolean isFinished() {
-        return (false);
-    }
+    //put isFinished() here
 
-    // Called once after isFinished returns true
+ 
     @Override
     public void end(boolean interrupted) {
     
+
     }
 }

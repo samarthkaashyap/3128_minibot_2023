@@ -19,16 +19,13 @@ package robot.subsystems;
 
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import robotCore.Device;
-import robotCore.Encoder;
-import robotCore.Encoder.EncoderType;
-import robotCore.PWMMotor;
-
+//import encoder, encoder type, and motor (PWMMotor) 
 //import constants
 
 public class FeederSubsystem extends SubsystemBase {
 	//create motor and ecoder objects here
+
 	public FeederSubsystem() {
-	
 
 	}
 
