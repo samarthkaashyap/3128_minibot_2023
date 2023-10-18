@@ -24,8 +24,8 @@ import robotCore.Encoder;
 import robotCore.Encoder.EncoderType;
 import robotCore.SmartMotor.SmartMotorMode;
 import robotCore.PWMMotor;
-
 //import constants
+
 public class ShooterSubsystem extends SubsystemBase {
 //create motor and encoder objects
     public ShooterSubsystem() {
