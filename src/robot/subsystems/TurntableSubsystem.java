@@ -20,39 +20,27 @@ package robot.subsystems;
 
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import robotCore.Device;
-import robotCore.Encoder;
-import robotCore.Logger;
-import robotCore.PWMMotor;
-import robotCore.Encoder.EncoderType;
-import static robot.Constants.TurnTableConstants.*;
+//import encoder, encoder type, and motor (PWMMotor)
+//import constants
 
-/**
- *
- */
 public class TurntableSubsystem extends SubsystemBase {
 
-	private PWMMotor m_motor = new PWMMotor(k_PWMPin, k_DirPin);
-	private Encoder m_encoder = new Encoder(EncoderType.Quadrature, k_encoderIntPin, k_encoderDirPin);
+	//create encoder and motor objects here
 
 	public TurntableSubsystem() {
-		Logger.log("TurntableSubsystem", 2, "TurntableSubsystem()");
+		 
 	}
 
 	public void initDefaultCommand() {
-		Logger.log("TurntableSubsystem", 2, "initDefaultCommand()");
+
 	}
 
-	public void setPower(double power) {
-		m_motor.set(power);
-	}
+	//set power here
 
-	public Encoder getEncoder()
-	{
-		return m_encoder;
-	}
+	//get encoder here
 
 	@Override
 	public void periodic() {
-		Logger.log("TurntableSubsystem", -1, "periodic()");
+		
 	}
 }

@@ -21,60 +21,43 @@ package robot.commands;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.team3128.common.hardware.input.NAR_Joystick;
 import robot.subsystems.DriveSubsystem;
-import robotCore.Logger;
 
-/**
- * An example command that uses an example subsystem.
- */
+
 public class CmdArcadeDrive extends CommandBase {
-  private final DriveSubsystem m_subsystem;
-  private final NAR_Joystick m_joystick;
+  //define stuff like your subsystem and joystick here (we use NAR_Joystick!) (since it's drive)
 
   /**
    * Creates a new ArcadeDriveCommand.
    *
    * @param subsystem The subsystem used by this command.
    */
+  
   public CmdArcadeDrive(DriveSubsystem subsystem, NAR_Joystick joystick) {
-    Logger.log("ArcadeDriveCommand", 3, "ArcadeDriveCommand()");
+    //parameters include subsystem and the joystick
 
-    m_subsystem = subsystem;
-    m_joystick = joystick;
-    // Use addRequirements() here to declare subsystem dependencies.
-    addRequirements(m_subsystem);
+    addRequirements();
   }
 
-  // Called when the command is initially scheduled.
+
   @Override
   public void initialize() {
-    Logger.log("ArcadeDriveCommand", 2, "initialize()");
+    
   }
 
-  // Called every time the scheduler runs while the command is scheduled.
+
   @Override
   public void execute() {
-    Logger.log("ArcadeDriveCommand", -1, "execute()");
 
-    double y = m_joystick.getY();
-    double x = m_joystick.getX();
+    //get joystick's y and x here and make sure they're always positive 
 
-    x = x * Math.abs(x) * 0.5;
-    y = y * Math.abs(y);
-
-    m_subsystem.setPower(y + x, y - x);
-    // m_subsystem.setSpeed(y - x, y + x);
+    //set power here
   }
 
-  // Called once the command ends or is interrupted.
+
+  //put isFinished() here
+
   @Override
   public void end(boolean interrupted) {
-    Logger.log("ArcadeDriveCommand", 2, String.format("end(%b)", interrupted));
-  }
 
-  // Returns true when the command should end.
-  @Override
-  public boolean isFinished() {
-    Logger.log("ArcadeDriveCommand", -1, "isFinished()");
-    return false;
   }
 }

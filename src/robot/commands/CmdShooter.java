@@ -19,58 +19,37 @@
 package robot.commands;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
-import robot.subsystems.ShooterSubsystem;
-import robotCore.Logger;
+//import shooter subsystem
+//import encoder
 
-/**
- *
- */
 public class CmdShooter extends CommandBase {
-    private final ShooterSubsystem m_subsystem;
-    int m_target = 1200;
-    private double power;
+    //define stuff here, like power, subsystem, etc.
 
-    public CmdShooter(ShooterSubsystem subsystem, double power) {
-        Logger.log("TestShooterCommand", 3, "TestShooterCommand()");
-        this.power = power;
-        m_subsystem = subsystem;
+    public CmdShooter() {
+        //parameters include the subsystem and power
 
-        // Use requires() here to declare subsystem dependencies
-        addRequirements(m_subsystem);
+
+        addRequirements();
     }
 
-    // Called just before this Command runs the first time
+ 
     @Override
     public void initialize() {
-        Logger.log("TestShooterCommand", 2, "initialize()");
-        Logger.log("TestShooterCommand", 1, ",Speed,Target");
-
-        m_subsystem.setPower(power);
+        //set power here
     }
 
-    // Called repeatedly when this Command is scheduled to run
+
     @Override
     public void execute() {
-        Logger.log("TestShooterCommand", -1, "execute()");
-
-        int speed = m_subsystem.m_encoder.getSpeed();
-
-        Logger.log("TestShooterCommand", 1, String.format("Speed = %d", speed));
+        //get speed of encoder here using the getEncoder() method from your subsystem
     }
 
-    // Make this return true when this Command no longer needs to run execute()
-    @Override
-    public boolean isFinished() {
-        Logger.log("TestShooterCommand", -1, "isFinished()");
 
-        return (false);
-    }
+    //put isFinished() here 
 
-    // Called once after isFinished returns true
+ 
     @Override
     public void end(boolean interrupted) {
-        Logger.log("TestShooterCommand", 2, "end()");
 
-        m_subsystem.setPower(0);
     }
 }
