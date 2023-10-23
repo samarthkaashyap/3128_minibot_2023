@@ -37,17 +37,7 @@ public class ShooterSubsystem extends SubsystemBase {
         // This method will be called once per scheduler run
     }
 
-    public void setSpeed(double speed) {
-        m_motor.setControlMode(SmartMotorMode.Speed);
-
-        m_motor.set(speed);
-    }
-
-    public void setPower(double power) {
-        m_motor.setControlMode(SmartMotorMode.Power);
-
-        m_motor.set(power);
-    }
+    //set power here 
 
    
 }

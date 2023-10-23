@@ -20,16 +20,8 @@
 package robot;
 
 import edu.wpi.first.wpilibj2.command.Command;
-import frc.team3128.common.hardware.input.NAR_Joystick;
-import robot.commands.CmdArcadeDrive;
-import robot.commands.CmdFeedAndShoot;
-import robot.commands.CmdFeeder;
-import robot.commands.CmdShooter;
-import robot.commands.CmdTurntable;
-import robot.subsystems.DriveSubsystem;
-import robot.subsystems.FeederSubsystem;
-import robot.subsystems.ShooterSubsystem;
-import robot.subsystems.TurntableSubsystem;
+//also be sure to import joystick
+//import literally everything (all subsystems and commands)
 
 /**
  * This class is where the bulk of the robot should be declared. Since
@@ -39,21 +31,12 @@ import robot.subsystems.TurntableSubsystem;
  * commands, and button mappings) should be declared here.
  */
 public class RobotContainer {
-  // The robot's subsystems and commands are defined here...
-  private final NAR_Joystick m_joystick = new NAR_Joystick(0);
+  //you know the drill, define subsystems and joystick
 
-  private final DriveSubsystem m_driveSubsystem = new DriveSubsystem();
-  private final ShooterSubsystem m_shooterSubsystem = new ShooterSubsystem();
-  private final FeederSubsystem m_feederSubsystem = new FeederSubsystem();
-  private final TurntableSubsystem m_turntableSubsystem = new TurntableSubsystem();
 
-  /**
-   * The container for the robot. Contains subsystems, OI devices, and commands.
-   */
   public RobotContainer() {
-    // Configure the button bindings
-    configureButtonBindings();
-    m_driveSubsystem.setDefaultCommand(new CmdArcadeDrive(m_driveSubsystem, m_joystick));
+    //everything you include here is stuff that you want the minibot to do
+    
   }
 
   /**
@@ -63,11 +46,7 @@ public class RobotContainer {
    * passing it to a {@link edu.wpi.first.wpilibj2.command.button.JoystickButton}.
    */
   private void configureButtonBindings() {
-    m_joystick.getButton(1).whileTrue(new CmdShooter(m_shooterSubsystem, 0.8));
-    m_joystick.getButton(2).whileTrue(new CmdFeeder(m_feederSubsystem, 0.6));
-    m_joystick.getButton(3).whileTrue(new CmdTurntable(m_turntableSubsystem, 0.6));
-    m_joystick.getButton(4).whileTrue(new CmdTurntable(m_turntableSubsystem, -0.6));
-    m_joystick.getButton(5).whileTrue(new CmdFeedAndShoot(m_feederSubsystem, m_shooterSubsystem, 0.5, 0.8));
+    //configure your joystick buttons to each command here!
  
   }
 

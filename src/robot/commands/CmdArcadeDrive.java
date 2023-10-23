@@ -24,7 +24,7 @@ import robot.subsystems.DriveSubsystem;
 
 
 public class CmdArcadeDrive extends CommandBase {
-  //define stuff like your subsystem and joystick here (since it's drive)
+  //define stuff like your subsystem and joystick here (we use NAR_Joystick!) (since it's drive)
 
   /**
    * Creates a new ArcadeDriveCommand.
