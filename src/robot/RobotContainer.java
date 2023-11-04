@@ -22,6 +22,11 @@ package robot;
 import edu.wpi.first.wpilibj2.command.Command;
 //also be sure to import joystick
 //import literally everything (all subsystems and commands)
+import joystick;
+import DriveSubsystem;
+import FeederSubsystem;
+import ShooterSubsystem;
+import TurntableSubsystem;
 
 /**
  * This class is where the bulk of the robot should be declared. Since
@@ -32,7 +37,7 @@ import edu.wpi.first.wpilibj2.command.Command;
  */
 public class RobotContainer {
   //you know the drill, define subsystems and joystick
-
+  nar_joystick
 
   public RobotContainer() {
     //everything you include here is stuff that you want the minibot to do
@@ -47,6 +52,9 @@ public class RobotContainer {
    */
   private void configureButtonBindings() {
     //configure your joystick buttons to each command here!
+      if button1 = true {
+        turnFeeder();
+      }
  
   }
 
