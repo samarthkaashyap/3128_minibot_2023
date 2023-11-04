@@ -28,32 +28,35 @@ import robotCore.Encoder;
 public class CmdShooter extends CommandBase {
     //define stuff here, like power, subsystem, etc.
     private final ShooterSubsystem m_shooter;
-    private final Encoder m_encoder;
     private final double m_power;
 
-    public CmdShooter(ShooterSubsystem m_shooter, double m_power) {
+    public CmdShooter(ShooterSubsystem n_shooter, double n_power) {
         //parameters include the subsystem and power
-        this.m_shooter = m_shooter;
-        this.m_power = m_power;
+        this.m_shooter = n_shooter;
+        this.m_power = n_power;
 
-        addRequirements();
+        addRequirements(m_shooter);
     }
 
  
     @Override
     public void initialize() {
         //set power here
+        m_shooter.setPower(m_power);
     }
 
 
     @Override
     public void execute() {
         //get speed of encoder here using the getEncoder() method from your subsystem
+        double speed = m_shooter.s_Encoder.getSpeed();
     }
 
 
     //put isFinished() here 
-
+    public boolean isFinished(){
+        return false;
+      }
  
     @Override
     public void end(boolean interrupted) {
