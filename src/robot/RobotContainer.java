@@ -21,12 +21,13 @@ package robot;
 
 import edu.wpi.first.wpilibj2.command.Command;
 //also be sure to import joystick
+import robotCore.Joystick;
 //import literally everything (all subsystems and commands)
-import joystick;
-import DriveSubsystem;
-import FeederSubsystem;
-import ShooterSubsystem;
-import TurntableSubsystem;
+
+
+import robot.subsystems.*;
+import robot.commands.*;
+
 
 /**
  * This class is where the bulk of the robot should be declared. Since

@@ -31,6 +31,7 @@ public final class Constants {
         public static final int k_leftEncoderDirPin = Device.Q1_DIR;
         public static final int k_rightEncoderIntPin = Device.Q2_INT;
         public static final int k_rightEncoderDirPin = Device.Q2_DIR;
+    
         
     }
 

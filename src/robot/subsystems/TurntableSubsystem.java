@@ -21,11 +21,24 @@ package robot.subsystems;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import robotCore.Device;
 //import encoder, encoder type, and motor (PWMMotor)
+import robotCore.Encoder;
+import robotCore.Encoder.EncoderType;
+import robotCore.PWMMotor;
 //import constants
+import static robot.Constants.TurnTableConstants.*;
 
 public class TurntableSubsystem extends SubsystemBase {
 
 	//create encoder and motor objects here
+	private final PWMMotor tt_motor = new PWMMotor(k_PWMPin, k_DirPin);
+	private static TurntableSubsystem instance;
+	public static synchronized TurntableSubsystem getInstance(){
+		if (instance == null) {
+		  instance = new TurntableSubsystem();
+		}
+		return instance;
+	  }
+	  private final Encoder tt_Encoder = new Encoder(EncoderType.Quadrature);
 
 	public TurntableSubsystem() {
 		 
@@ -36,8 +49,14 @@ public class TurntableSubsystem extends SubsystemBase {
 	}
 
 	//set power here
-
+	private void setPower(double tt_power) {
+        tt_motor.set(tt_power);
+    }
 	//get encoder here
+
+	public Encoder get_ttEncoder() {
+		return tt_Encoder;
+	}
 
 	@Override
 	public void periodic() {
