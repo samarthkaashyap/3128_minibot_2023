@@ -204,6 +204,9 @@ public class Encoder {
 		init(type, pin1, pin2, Device.k_mainTwoWireId);
 	}
 
+	public Encoder(EncoderType quadrature) {
+	}
+
 	// ! @cond PRIVATE
 	public int getEncoderNo() {
 		return (m_encoderNo);
