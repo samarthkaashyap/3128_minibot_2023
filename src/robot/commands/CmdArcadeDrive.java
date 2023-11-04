@@ -25,17 +25,20 @@ import robot.subsystems.DriveSubsystem;
 
 public class CmdArcadeDrive extends CommandBase {
   //define stuff like your subsystem and joystick here (we use NAR_Joystick!) (since it's drive)
-
+  private final DriveSubsystem m_drive;
+  private final NAR_Joystick mNar_Joystick;
   /**
    * Creates a new ArcadeDriveCommand.
    *
    * @param subsystem The subsystem used by this command.
    */
   
-  public CmdArcadeDrive(DriveSubsystem subsystem, NAR_Joystick joystick) {
+  public CmdArcadeDrive(DriveSubsystem m_drive, NAR_Joystick n_joystick) {
+    this.mNar_Joystick = n_joystick;
+    this.m_drive = m_drive;
     //parameters include subsystem and the joystick
 
-    addRequirements();
+    addRequirements(m_drive);
   }
 
 
@@ -49,13 +52,22 @@ public class CmdArcadeDrive extends CommandBase {
   public void execute() {
 
     //get joystick's y and x here and make sure they're always positive 
+    double x = mNar_Joystick.getX();
+    double y = mNar_Joystick.getY();
+    x = x*Math.abs(x)*0.5;
+    y = y*Math.abs(y)*0.5;
 
+    
     //set power here
+    m_drive.setPower(y + x, y -x);
   }
 
 
   //put isFinished() here
-
+  @Override
+  public boolean isFinished(){
+    return false;
+  }
   @Override
   public void end(boolean interrupted) {
 

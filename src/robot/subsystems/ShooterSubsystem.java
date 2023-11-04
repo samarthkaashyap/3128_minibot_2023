@@ -25,19 +25,35 @@ import robotCore.Encoder.EncoderType;
 import robotCore.SmartMotor.SmartMotorMode;
 import robotCore.PWMMotor;
 //import constants
-
+import static robot.Constants.ShooterConstants.*;
 public class ShooterSubsystem extends SubsystemBase {
+
 //create motor and encoder objects
+private final PWMMotor s_motor = new PWMMotor(k_PWMPin, k_DirPin);
+private static ShooterSubsystem instance;
+  public static synchronized ShooterSubsystem getInstance(){
+    if (instance == null) {
+      instance = new ShooterSubsystem();
+    }
+    return instance;
+  }
+private final Encoder s_Encoder = new Encoder(EncoderType.Quadrature);
+
     public ShooterSubsystem() {
 
     }
 
     @Override
     public void periodic() {
-        // This method will be called once per scheduler run
+        // This method will be called once per scheduler 
     }
 
     //set power here 
+    private void setPower(double s_power) {
+        s_motor.set(s_power);
+    }
 
-   
+
+
 }
+

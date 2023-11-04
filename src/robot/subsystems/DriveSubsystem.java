@@ -21,27 +21,56 @@ package robot.subsystems;
 
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import robotCore.Device;
+import robotCore.Encoder;
 //import encoder, encoder type, and motor (PWMMotor) 
+import robotCore.Encoder.EncoderType;
+import robotCore.PWMMotor;
 //import constants from constant folder
-
+import static robot.Constants.DrivetrainConstants.*;
 public class DriveSubsystem extends SubsystemBase {
+
   //create motor and encoder objects here
+
+  private final PWMMotor right_Motor = new PWMMotor(k_rightMotorPWMPin, k_rightMotorDirPin);
+  private final PWMMotor left_Motor = new PWMMotor(k_leftMotorPWMPin, k_leftMotorDirPin);
+
+  //add stupid screenshot
+
+  private static DriveSubsystem instance;
+  public static synchronized DriveSubsystem getInstance(){
+    if (instance == null) {
+      instance = new DriveSubsystem();
+    }
+    return instance;
+  }
+
+  private final Encoder left_Encoder = new Encoder(EncoderType.Quadrature);
+  private final Encoder right_Encoder = new Encoder(EncoderType.Quadrature);
   
   public DriveSubsystem() {
       
   //be sure to set inverted!
+  right_Motor.setInverted(true);
   }
 
   @Override
   public void periodic() {
   // This method will be called once per scheduler run
-
+    System.out.println();
   }
 
   //set power here! for both motors
-
+  public void setPower(double rightpower, double leftpower){
+    right_Motor.set(rightpower);
+    left_Motor.set(leftpower);
+  }
 
   //get your encoders here! for both motors
-
+  public Encoder get_LeftEncoder() {
+      return left_Encoder;
+  }
+  public double get_RightVelocityEncoder() {
+      return right_Encoder.getSpeed();
+  }
 
 }
