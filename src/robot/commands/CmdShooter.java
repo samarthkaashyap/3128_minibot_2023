@@ -20,14 +20,21 @@ package robot.commands;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
 //import shooter subsystem
+import robot.subsystems.ShooterSubsystem;
+import robotCore.Encoder;
 //import encoder
+
 
 public class CmdShooter extends CommandBase {
     //define stuff here, like power, subsystem, etc.
+    private final ShooterSubsystem m_shooter;
+    private final Encoder m_encoder;
+    private final double m_power;
 
-    public CmdShooter() {
+    public CmdShooter(ShooterSubsystem m_shooter, double m_power) {
         //parameters include the subsystem and power
-
+        this.m_shooter = m_shooter;
+        this.m_power = m_power;
 
         addRequirements();
     }
