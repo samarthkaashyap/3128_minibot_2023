@@ -38,7 +38,7 @@ public class TurntableSubsystem extends SubsystemBase {
 		}
 		return instance;
 	  }
-	  private final Encoder tt_Encoder = new Encoder(EncoderType.Quadrature);
+	  private final Encoder tt_Encoder = new Encoder(EncoderType.Quadrature, k_encoderIntPin, k_encoderDirPin);
 
 	public TurntableSubsystem() {
 		 

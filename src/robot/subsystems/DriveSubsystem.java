@@ -44,8 +44,8 @@ public class DriveSubsystem extends SubsystemBase {
     return instance;
   }
 
-  private final Encoder left_Encoder = new Encoder(EncoderType.Quadrature);
-  private final Encoder right_Encoder = new Encoder(EncoderType.Quadrature);
+  private final Encoder left_Encoder = new Encoder(EncoderType.Quadrature, k_leftEncoderIntPin, k_leftEncoderDirPin);
+  private final Encoder right_Encoder = new Encoder(EncoderType.Quadrature, k_rightEncoderIntPin, k_rightEncoderDirPin);
   
   public DriveSubsystem() {
       

@@ -44,7 +44,7 @@ public class FeederSubsystem extends SubsystemBase {
 	private PWMMotor f_motor = new PWMMotor(k_PWMPin, k_DirPin);
 
 	//create encoder object
-	public final Encoder f_encoder = new Encoder(EncoderType.Quadrature);
+	public final Encoder f_encoder = new Encoder(EncoderType.Quadrature, k_encPin1, k_encPin2);
 
 	
 

@@ -37,7 +37,9 @@ private static ShooterSubsystem instance;
     }
     return instance;
   }
-public final Encoder s_Encoder = new Encoder(EncoderType.Quadrature);
+public final Encoder s_Encoder = new Encoder(EncoderType.Quadrature, k_encoderPin1, k_encoderPin2);
+
+
 
     public ShooterSubsystem() {
 
@@ -46,6 +48,7 @@ public final Encoder s_Encoder = new Encoder(EncoderType.Quadrature);
     @Override
     public void periodic() {
         // This method will be called once per scheduler 
+        
     }
 
     //set power here 
